@@ -13,7 +13,7 @@ This mobile application allows users to save student details in a database, view
 - Node.js 
 - Express 
 - MongoDB 
-## installing Node Backend
+## Installing Node Backend
 
 
 
@@ -35,15 +35,15 @@ npm install
 ```
 ## Configuration
 1. Create a .env file in the project root:
-Get the mongoDB databse url and paste your url in the .env file
+Get the mongoDB database URL and paste your URL in the .env file
 
-MONGODB_URL=your mongodb databse url
+MONGODB_URL=your mongodb database URL
 ## Run the  Backend
 ```bash
 npm start server.js
 ```
 The server will start running on http://localhost:3000.
-## API Endpoins
+## API Endpoints
 - GET /student Get a list of all students.
 - POST /student/add Create a new student.
 - PUT /student/update/:id Update details of a specific student.
@@ -64,11 +64,11 @@ flutter run
 ```
 ## Special Note
 To work the application make sure the emulator also has your machine's IP Address and port = 3000
-You can change IP addres in
+You can change IP addresses in
 
 utils/const.dart
 
-you can change the url using above file 
+you can change the URL using the above file 
 
 const String URI = 'http://your_ip:3000';
 ## Author
@@ -76,5 +76,5 @@ const String URI = 'http://your_ip:3000';
 - [@LakshanMaduka](https://github.com/LakshanMaduka)
 ## Demo
 
-Insert gif or link to demo
+![demo3](https://github.com/LakshanMaduka/students_register/assets/73058412/f68c5cda-fb43-4e20-96d6-10ab8ead6d11)
 
