@@ -79,10 +79,6 @@ class _DetailsPageState extends State<DetailsPage> {
                                             width: 10,
                                           ),
                                           Text(student.address),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          Text(student.id),
                                         ],
                                       ),
                                       trailing: Row(
@@ -90,9 +86,10 @@ class _DetailsPageState extends State<DetailsPage> {
                                         children: [
                                           IconButton(
                                               onPressed: () {
-                                                Navigator.of(context).pushNamed(
-                                                    "/edit",
-                                                    arguments: {
+                                                Navigator.of(context)
+                                                    .pushReplacementNamed(
+                                                        "/edit",
+                                                        arguments: {
                                                       'details': student
                                                     });
                                               },
@@ -114,11 +111,11 @@ class _DetailsPageState extends State<DetailsPage> {
                                                   showCloseIcon: true,
                                                   btnCancelOnPress: () {},
                                                   btnOkOnPress: () async {
-                                                    print(student.id);
                                                     await _studentService
                                                         .deleteFunction(
-                                                            student.id,
-                                                            context);
+                                                      student.id,
+                                                      context,
+                                                    );
                                                   },
                                                 ).show();
                                               },

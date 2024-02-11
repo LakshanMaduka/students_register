@@ -71,7 +71,7 @@ res.send({message:"Sucess",user:update});
 router.route("/delete/:id").delete(async (req,res)=>{
     let userId = req.params.id;
     try {
-        await Student.findOneAndDelete(userId);
+        await Student.findOneAndDelete({ _id: userId });
         res.send("delete sucessfully");
     } catch (error) {
         console.log(error);

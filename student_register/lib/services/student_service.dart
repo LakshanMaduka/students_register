@@ -51,7 +51,7 @@ class StudentService {
                 .show();
           });
     } catch (e) {
-      print(e);
+      rethrow;
     }
   }
 
@@ -64,7 +64,7 @@ class StudentService {
       response = await http.get(
         Uri.parse('$URI/student'),
       );
-      print(response.body);
+
       if (response.statusCode == 200) {
         final List<dynamic> studentsData = jsonDecode(response.body);
         students = studentsData.map((dynamic item) {
@@ -88,8 +88,10 @@ class StudentService {
   }
 
   // delete student
-  Future deleteFunction(String id, BuildContext context) async {
-    print(id);
+  Future deleteFunction(
+    String id,
+    BuildContext context,
+  ) async {
     late http.Response response;
     try {
       response = await http.delete(Uri.parse('$URI/student/delete/$id'));
@@ -98,12 +100,13 @@ class StudentService {
           context: context,
           onSuccsess: () {
             AwesomeDialog(
-                    context: context,
-                    animType: AnimType.scale,
-                    dialogType: DialogType.success,
-                    title: "Delete Successful !",
-                    btnOkOnPress: () {})
-                .show();
+                context: context,
+                animType: AnimType.scale,
+                dialogType: DialogType.success,
+                title: "Delete Successful !",
+                btnOkOnPress: () {
+                  Navigator.pushReplacementNamed(context, "/details");
+                }).show();
           });
     } catch (e) {
       throw e;
