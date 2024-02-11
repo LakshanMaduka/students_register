@@ -88,7 +88,8 @@ class StudentService {
   }
 
   // delete student
-  void deleteFunction(String id, BuildContext context) async {
+  Future deleteFunction(String id, BuildContext context) async {
+    print(id);
     late http.Response response;
     try {
       response = await http.delete(Uri.parse('$URI/student/delete/$id'));

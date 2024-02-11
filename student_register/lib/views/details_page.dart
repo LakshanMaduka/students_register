@@ -79,6 +79,10 @@ class _DetailsPageState extends State<DetailsPage> {
                                             width: 10,
                                           ),
                                           Text(student.address),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(student.id),
                                         ],
                                       ),
                                       trailing: Row(
@@ -109,12 +113,12 @@ class _DetailsPageState extends State<DetailsPage> {
                                                           color: Colors.black),
                                                   showCloseIcon: true,
                                                   btnCancelOnPress: () {},
-                                                  btnOkOnPress: () {
-                                                    _studentService
+                                                  btnOkOnPress: () async {
+                                                    print(student.id);
+                                                    await _studentService
                                                         .deleteFunction(
                                                             student.id,
                                                             context);
-                                                    setState(() {});
                                                   },
                                                 ).show();
                                               },

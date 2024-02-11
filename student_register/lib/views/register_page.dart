@@ -268,7 +268,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                     birthday: newStudent.birthday,
                                     address: newStudent.address,
                                     context: context,
-                                    btnOkOnPress: () {})
+                                    btnOkOnPress: () {
+                                      Navigator.pushReplacementNamed(
+                                          context, "/details");
+                                    })
                                 : studentService.saveStudent(
                                     id: newStudent.id,
                                     name: newStudent.name,
@@ -292,7 +295,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         borderRadius: BorderRadius.circular(10),
                         height: height * 0.08,
                         onPressed: () {
-                          Navigator.pop(context);
+                          isEdit
+                              ? Navigator.pushReplacementNamed(
+                                  context, "/details")
+                              : Navigator.pop(context);
                         },
                         child: Text(
                           "CANCEL",
